@@ -4,6 +4,7 @@ const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 function useLetters() {
     const [letters, setLetters] = useState([]);
+    const [innitialLetterState, setInnitialLetterState] = useState([]);
 
     useEffect(() => {
         const initialLetters = ALPHABET.map((character, index) => ({
@@ -11,10 +12,10 @@ function useLetters() {
             ordinal: index + 1,
             status: null,
         }));
-        setLetters(initialLetters);
+        setInnitialLetterState(initialLetters);
     }, []);
 
-    return [letters, setLetters];
+    return [letters, setLetters, innitialLetterState];
 }
 
 export default useLetters;

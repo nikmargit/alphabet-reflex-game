@@ -2,42 +2,43 @@ import React, { useState } from 'react';
 import useTimeout from './useTimeout';
 import DifficultySelection from './DifficultySelection';
 import useLetters from './useLetters';
+import DisplayResults from './DisplayResults';
 
 function App() {
-    const [letters, setLetters] = useLetters();
+    const [letters, setLetters, initialLetterState] = useLetters();
     const [randomLetter, setRandomLetter] = useState(null);
     const [difficulty, setDifficulty] = useState(3500);
+    const [startTimeout, stopTimeout] = useTimeout(handleAnswer);
 
-    const [startTimeout, stopTimeout] = useTimeout(() =>
-        console.log('timeout')
-    );
+    const startNewGame = () => {
+        setLetters(initialLetterState);
+        startNewRound(initialLetterState);
+    };
 
-    const startNewGame = (lett) => {
-        const unnansweredLetters = lett.filter((letter) => !letter.status);
-        const random =
-            unnansweredLetters[
-                Math.floor(Math.random() * unnansweredLetters.length)
-            ];
+    const startNewRound = (updatedLetters) => {
+        const remaining = updatedLetters.filter((letter) => !letter.status);
+        if (remaining.length === 0) {
+            return setRandomLetter(null);
+        }
+        const random = remaining[Math.floor(Math.random() * remaining.length)];
         setRandomLetter(random);
         startTimeout(difficulty);
     };
 
-    function handleAnswer({ target }) {
+    function handleAnswer(pressedKey = '') {
         stopTimeout();
-        const correctAnswer =
-            target.value.toLowerCase() === randomLetter.character;
+        const isCorrect = pressedKey.toLowerCase() === randomLetter.character;
         const lettersCopy = [...letters].map((letter) => {
             if (letter.character === randomLetter.character) {
                 return {
                     ...letter,
-                    status: correctAnswer ? 'correct' : 'wrong',
+                    status: isCorrect ? 'HIT' : 'MISS',
                 };
             }
             return letter;
         });
         setLetters(lettersCopy);
-        startNewGame(lettersCopy);
-        target.select();
+        startNewRound(lettersCopy);
     }
 
     return (
@@ -54,13 +55,20 @@ function App() {
                     <input
                         type="text"
                         name="letter"
-                        onChange={handleAnswer}
+                        onKeyPress={(event) => {
+                            handleAnswer(String.fromCharCode(event.which));
+                            event.target.select();
+                        }}
                         maxLength={1}
                     />
                 </>
             )}
-            <button onClick={() => startNewGame(letters)}>start game</button>
-            <button onClick={stopTimeout}>stopGame</button>
+            {randomLetter ? (
+                <button onClick={stopTimeout}>stopGame</button>
+            ) : (
+                <button onClick={startNewGame}>start game</button>
+            )}
+            <DisplayResults letters={letters} />
         </>
     );
 }
