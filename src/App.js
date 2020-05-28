@@ -1,9 +1,25 @@
 import React from 'react';
-
-const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
+import useTimeout from './useTimeout';
 
 function App() {
-    return <h1>ALPHABET GAME</h1>;
+    const [startTimeout, stopTimeout] = useTimeout(() =>
+        console.log('timeout')
+    );
+
+    function handleAnswer() {
+        stopTimeout();
+        console.log('correct or wrong');
+        startTimeout(3000);
+    }
+
+    return (
+        <>
+            <h1>ALPHABET GAME</h1>
+            <button onClick={() => startTimeout(3000)}>start game</button>
+            <button onClick={handleAnswer}>answer</button>
+            <button onClick={stopTimeout}>stopGame</button>
+        </>
+    );
 }
 
 export default App;
