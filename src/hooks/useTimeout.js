@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 
-const useTimeout = (fn) => {
+const useTimeout = (endRound) => {
     const [timeoutID, setTimeoutID] = useState();
-
+    // we need to use ref to make sure we are handling the right random letter
     const updatedFn = useRef();
 
     useEffect(() => {
-        updatedFn.current = fn;
-    }, [fn]);
+        updatedFn.current = endRound;
+    }, [endRound]);
     // clear timeout on unmout to prevent memory leak
     useEffect(() => () => clearTimeout(timeoutID), [timeoutID]);
     // create timeout

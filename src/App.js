@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import useTimeout from './useTimeout';
-import DifficultySelection from './DifficultySelection';
-import useLetters from './useLetters';
-import DisplayResults from './DisplayResults';
+import useTimeout from './hooks/useTimeout';
+import useLetters from './hooks/useLetters';
+import DifficultySelection from './components/DifficultySelection';
+import DisplayResults from './components/DisplayResults';
+import InputSection from './components/InputSection';
 
 function App() {
     const [letters, setLetters, initialLetterState] = useLetters();
@@ -18,7 +19,7 @@ function App() {
     const startNewRound = (updatedLetters) => {
         const remaining = updatedLetters.filter((letter) => !letter.status);
         if (remaining.length === 0) {
-            return setRandomLetter(null);
+            return stopGame();
         }
         const random = remaining[Math.floor(Math.random() * remaining.length)];
         setRandomLetter(random);
@@ -41,6 +42,11 @@ function App() {
         startNewRound(lettersCopy);
     }
 
+    function stopGame() {
+        stopTimeout();
+        setRandomLetter(null);
+    }
+
     return (
         <>
             <DifficultySelection
@@ -48,23 +54,12 @@ function App() {
                 setDifficulty={setDifficulty}
                 randomLetter={randomLetter}
             />
-            {randomLetter && (
-                <>
-                    <h1>{randomLetter.ordinal}</h1>
-                    <label htmlFor="letter">Input letter</label>
-                    <input
-                        type="text"
-                        name="letter"
-                        onKeyPress={(event) => {
-                            handleAnswer(String.fromCharCode(event.which));
-                            event.target.select();
-                        }}
-                        maxLength={1}
-                    />
-                </>
-            )}
+            <InputSection
+                randomLetter={randomLetter}
+                handleAnswer={handleAnswer}
+            />
             {randomLetter ? (
-                <button onClick={stopTimeout}>stopGame</button>
+                <button onClick={stopGame}>stopGame</button>
             ) : (
                 <button onClick={startNewGame}>start game</button>
             )}
