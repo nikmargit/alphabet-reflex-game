@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useTimeout from './useTimeout';
 import DifficultySelection from './DifficultySelection';
-
-const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
+import useLetters from './useLetters';
 
 function App() {
-    const [letters, setLetters] = useState([]);
+    const [letters, setLetters] = useLetters();
     const [randomLetter, setRandomLetter] = useState(null);
     const [difficulty, setDifficulty] = useState(3500);
-
-    useEffect(() => {
-        const initialLetters = ALPHABET.map((character, index) => ({
-            character,
-            ordinal: index + 1,
-            status: null,
-        }));
-        setLetters(initialLetters);
-    }, [setLetters]);
 
     const [startTimeout, stopTimeout] = useTimeout(() =>
         console.log('timeout')
