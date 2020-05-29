@@ -4,11 +4,12 @@ import useLetters from './hooks/useLetters';
 import DifficultySelection from './components/DifficultySelection';
 import DisplayResults from './components/DisplayResults';
 import InputSection from './components/InputSection';
+import Countdown from './components/Countdown';
 
 function App() {
-    const [letters, setLetters, initialLetterState] = useLetters();
     const [randomLetter, setRandomLetter] = useState(null);
     const [difficulty, setDifficulty] = useState(3500);
+    const [letters, setLetters, initialLetterState] = useLetters();
     const [startTimeout, stopTimeout] = useTimeout(handleAnswer);
 
     const startNewGame = () => {
@@ -58,10 +59,11 @@ function App() {
                 randomLetter={randomLetter}
                 handleAnswer={handleAnswer}
             />
+            <Countdown randomLetter={randomLetter} difficulty={difficulty} />
             {randomLetter ? (
-                <button onClick={stopGame}>stopGame</button>
+                <button onClick={stopGame}>Stop Game</button>
             ) : (
-                <button onClick={startNewGame}>start game</button>
+                <button onClick={startNewGame}>Start Game</button>
             )}
             <DisplayResults letters={letters} />
         </>

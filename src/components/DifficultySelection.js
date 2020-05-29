@@ -30,7 +30,7 @@ function DifficultySelection({ difficulty, setDifficulty, randomLetter }) {
                 name="difficulty"
                 value={2500}
                 onChange={({ target }) => setDifficulty(Number(target.value))}
-                checked={difficulty === 2500}
+                checked={difficulty === 2000}
                 disabled={randomLetter}
             />
             <label htmlFor="hard">Hard</label>
