@@ -10,14 +10,8 @@ function InputSection({ randomLetter, handleAnswer }) {
         }
     }, [randomLetter]);
 
-    if (!randomLetter) {
-        return <h3>Start game</h3>;
-    }
-
     return (
-        <>
-            <h1>{randomLetter.ordinal}</h1>
-            <label htmlFor="letter">Input letter</label>
+        <div className="InputSection">
             <input
                 type="text"
                 name="letter"
@@ -27,8 +21,13 @@ function InputSection({ randomLetter, handleAnswer }) {
                 }}
                 maxLength={1}
                 ref={inputRef}
+                className="input is-primary is-large"
+                disabled={!randomLetter}
             />
-        </>
+            <h2 className="title is-2">
+                {randomLetter && randomLetter.ordinal}
+            </h2>
+        </div>
     );
 }
 

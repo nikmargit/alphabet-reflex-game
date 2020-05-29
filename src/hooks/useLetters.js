@@ -13,6 +13,7 @@ function useLetters() {
             status: null,
         }));
         setInnitialLetterState(initialLetters);
+        setLetters(initialLetters);
     }, []);
 
     return [letters, setLetters, innitialLetterState];

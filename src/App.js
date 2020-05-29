@@ -5,6 +5,8 @@ import DifficultySelection from './components/DifficultySelection';
 import DisplayResults from './components/DisplayResults';
 import InputSection from './components/InputSection';
 import Countdown from './components/Countdown';
+import Buttons from './components/Buttons';
+import './App.scss';
 
 function App() {
     const [randomLetter, setRandomLetter] = useState(null);
@@ -49,24 +51,24 @@ function App() {
     }
 
     return (
-        <>
+        <div className="container is-center">
             <DifficultySelection
                 difficulty={difficulty}
                 setDifficulty={setDifficulty}
                 randomLetter={randomLetter}
+            />
+            <Buttons
+                randomLetter={randomLetter}
+                startNewGame={startNewGame}
+                stopGame={stopGame}
             />
             <InputSection
                 randomLetter={randomLetter}
                 handleAnswer={handleAnswer}
             />
             <Countdown randomLetter={randomLetter} difficulty={difficulty} />
-            {randomLetter ? (
-                <button onClick={stopGame}>Stop Game</button>
-            ) : (
-                <button onClick={startNewGame}>Start Game</button>
-            )}
             <DisplayResults letters={letters} />
-        </>
+        </div>
     );
 }
 

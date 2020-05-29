@@ -17,26 +17,34 @@ function DisplayResults({ letters }) {
 
     const { hits, misses, remaining } = correctCount;
     return (
-        <>
-            <p>Hit: {hits}</p>
-            <p>Miss: {misses}</p>
-            <p>Remaining:{remaining}</p>
-            {letters.map(({ character, ordinal, status }) => {
-                const color = status && (status === 'HIT' ? 'green' : 'red');
-                return (
-                    <p
-                        style={{
-                            display: 'inline-block',
-                            marginRight: 16,
-                            color,
-                        }}
-                        key={character}
-                    >
-                        {ordinal}|{character.toUpperCase()}
-                    </p>
-                );
-            })}
-        </>
+        <div className="DisplayResults">
+            <div className="letters">
+                {letters.map(({ character, ordinal, status }) => {
+                    const colorClass = status
+                        ? status === 'HIT'
+                            ? 'has-text-success'
+                            : 'has-text-danger'
+                        : '';
+                    return (
+                        <h3
+                            key={character}
+                            className={`subtitle is-3 is-inline-block ${colorClass}`}
+                        >
+                            {ordinal}|{character.toUpperCase()}
+                        </h3>
+                    );
+                })}
+            </div>
+            <div className="count has-background-light">
+                <p>
+                    Hit: <span className="has-text-danger">{hits}</span>
+                </p>
+                <p>
+                    Miss: <span className="has-text-success">{misses}</span>
+                </p>
+                <p>Remaining: {remaining}</p>
+            </div>
+        </div>
     );
 }
 

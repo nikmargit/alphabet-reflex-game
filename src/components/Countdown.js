@@ -19,7 +19,18 @@ function Countdown({ randomLetter, difficulty }) {
         setCount(difficulty);
     }, [difficulty]);
 
-    return <h4>countdown: {count}</h4>;
+    const percentage = (count * 100) / difficulty;
+
+    return (
+        <div className="Countdown">
+            <div className="background has-background-grey-light">
+                <div
+                    className="line has-background-primary"
+                    style={{ width: `${percentage}%` }}
+                ></div>
+            </div>
+        </div>
+    );
 }
 
 export default Countdown;
