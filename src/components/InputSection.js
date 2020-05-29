@@ -7,6 +7,9 @@ function InputSection({ randomLetter, handleAnswer }) {
         // focus on input when starting game
         if (randomLetter) {
             inputRef.current.focus();
+        } else {
+            // clear input when stopping the game
+            inputRef.current.value = '';
         }
     }, [randomLetter]);
 

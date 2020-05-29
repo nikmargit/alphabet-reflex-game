@@ -3,7 +3,7 @@ import React from 'react';
 function DifficultySelection({ difficulty, setDifficulty, randomLetter }) {
     return (
         <div className="DifficultySelection">
-            <h5 class="subtitle is-6 is-marginless">Select difficulty:</h5>
+            <h5 className="subtitle is-6 is-marginless">Select difficulty:</h5>
             <div className="control">
                 <label htmlFor="easy" className="radio" disabled={randomLetter}>
                     <input
