@@ -37,10 +37,10 @@ function DisplayResults({ letters }) {
             </div>
             <div className="count has-background-light">
                 <p>
-                    Hit: <span className="has-text-danger">{hits}</span>
+                    Hit: <span className="has-text-success">{hits}</span>
                 </p>
                 <p>
-                    Miss: <span className="has-text-success">{misses}</span>
+                    Miss: <span className="has-text-danger">{misses}</span>
                 </p>
                 <p>Remaining: {remaining}</p>
             </div>
