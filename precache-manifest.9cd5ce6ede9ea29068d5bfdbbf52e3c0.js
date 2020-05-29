@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9397c115be8d8e28f67b02ea719a4bda",
+    "revision": "c21324f0069a139dee92e23dfa176443",
     "url": "/alphabet-reflex-game/index.html"
   },
   {
-    "revision": "b326a72cfd786eb6866e",
+    "revision": "83438207445cc5473f2d",
     "url": "/alphabet-reflex-game/static/css/main.706d982b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alphabet-reflex-game/static/js/2.c8a2b7d0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b326a72cfd786eb6866e",
-    "url": "/alphabet-reflex-game/static/js/main.71fb067a.chunk.js"
+    "revision": "83438207445cc5473f2d",
+    "url": "/alphabet-reflex-game/static/js/main.69278ed3.chunk.js"
   },
   {
     "revision": "d1cdc32759c9afa25029",

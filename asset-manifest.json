@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/alphabet-reflex-game/static/css/main.706d982b.chunk.css",
-    "main.js": "/alphabet-reflex-game/static/js/main.71fb067a.chunk.js",
-    "main.js.map": "/alphabet-reflex-game/static/js/main.71fb067a.chunk.js.map",
+    "main.js": "/alphabet-reflex-game/static/js/main.69278ed3.chunk.js",
+    "main.js.map": "/alphabet-reflex-game/static/js/main.69278ed3.chunk.js.map",
     "runtime-main.js": "/alphabet-reflex-game/static/js/runtime-main.cf0874e3.js",
     "runtime-main.js.map": "/alphabet-reflex-game/static/js/runtime-main.cf0874e3.js.map",
     "static/js/2.c8a2b7d0.chunk.js": "/alphabet-reflex-game/static/js/2.c8a2b7d0.chunk.js",
     "static/js/2.c8a2b7d0.chunk.js.map": "/alphabet-reflex-game/static/js/2.c8a2b7d0.chunk.js.map",
     "index.html": "/alphabet-reflex-game/index.html",
-    "precache-manifest.a91d96b679e9de04369b3c7216ab84ee.js": "/alphabet-reflex-game/precache-manifest.a91d96b679e9de04369b3c7216ab84ee.js",
+    "precache-manifest.9cd5ce6ede9ea29068d5bfdbbf52e3c0.js": "/alphabet-reflex-game/precache-manifest.9cd5ce6ede9ea29068d5bfdbbf52e3c0.js",
     "service-worker.js": "/alphabet-reflex-game/service-worker.js",
     "static/css/main.706d982b.chunk.css.map": "/alphabet-reflex-game/static/css/main.706d982b.chunk.css.map",
     "static/js/2.c8a2b7d0.chunk.js.LICENSE.txt": "/alphabet-reflex-game/static/js/2.c8a2b7d0.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cf0874e3.js",
     "static/js/2.c8a2b7d0.chunk.js",
     "static/css/main.706d982b.chunk.css",
-    "static/js/main.71fb067a.chunk.js"
+    "static/js/main.69278ed3.chunk.js"
   ]
 }

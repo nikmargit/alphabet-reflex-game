@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alphabet-reflex-game/precache-manifest.a91d96b679e9de04369b3c7216ab84ee.js"
+  "/alphabet-reflex-game/precache-manifest.9cd5ce6ede9ea29068d5bfdbbf52e3c0.js"
 );
 
 self.addEventListener('message', (event) => {
