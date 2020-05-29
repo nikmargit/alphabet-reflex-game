@@ -1,6 +1,6 @@
 # Alphabet Reflex Game
 
-See it live:
+See it live on GitHub pages: [Alphabet Reflex Game](https://nikmargit.github.io/alphabet-reflex-game/)
 
 ## Installation
 
