@@ -52,6 +52,7 @@ function App() {
 
     return (
         <div className="container is-center">
+            <h1 className="title is-1">Alphabet Reflex Game</h1>
             <DifficultySelection
                 difficulty={difficulty}
                 setDifficulty={setDifficulty}
